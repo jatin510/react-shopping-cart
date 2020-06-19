@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sentiment Classifier</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="../static/style_sentiment.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body>
+    <div class="preload">
+      <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-custom sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"
+          ><img src="../static/img/done.png" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Connect</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="carousel-inner active">
+      <div class="box">
+        <h1>Sentiment Classifier</h1>
+      </div>
+      <form action="\sentiment.html" method="POST">
+        <div class="input-field">
+          <div>
+            <textarea
+              placeholder="Please Enter the text.."
+              name="text"
+              cols="50"
+              rows="10"
+            ></textarea>
+          </div>
+          <!-- <label>Please Enter the text..</label>  -->
+          <!-- <span></span> -->
+        </div>
+        <div class="input-button">
+          <form>
+            <input
+              type="submit"
+              value="Get Results"
+              id="results"
+              class="btn-primary"
+            />
+          </form>
+        </div>
+      </form>
+      <div class="hide-prediction">
+        <p>{{prediction}}</p>
+        <span></span>
+      </div>
+      <img src="../static/img/gif1.gif" />
+    </div>
+
+    <script>
+      $(window).on("load", function () {
+        $(".preload").fadeOut("slow");
+        $("body").css({ "overflow-y": "scroll" });
+      });
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        offset: 400,
+        duration: 1000,
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $("#results").click(function () {
+          $(".hide-prediction")
+            .removeClass("hide-prediction")
+            .addClass("show-prediction");
+          // event.preventDefault();
+        });
+      });
+    </script>
+  </body>
+</html>
